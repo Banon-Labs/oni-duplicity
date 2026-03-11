@@ -2,11 +2,16 @@ import * as React from "react";
 
 import { Trans, WithTranslation, withTranslation } from "react-i18next";
 
-import { Theme, createStyles, withStyles, WithStyles } from "@mui/styles";
+import {
+  Theme,
+  createStyles,
+  withStyles,
+  WithStyles,
+} from "@material-ui/core/styles";
 
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
 
 import { OSType } from "@/runtime-env";
 
