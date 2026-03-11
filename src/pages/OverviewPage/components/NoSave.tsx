@@ -2,22 +2,16 @@ import * as React from "react";
 
 import { Trans, WithTranslation, withTranslation } from "react-i18next";
 
-import {
-  Theme,
-  createStyles,
-  withStyles,
-  WithStyles,
-} from "@material-ui/core/styles";
+import { Theme, createStyles, withStyles, WithStyles } from "@mui/styles";
 
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
 
 import { OSType } from "@/runtime-env";
 
 import PageContainer from "@/components/PageContainer";
 import LoadButton from "@/components/LoadButton";
-import LoadExampleButton from "@/components/LoadExampleButton";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -35,7 +29,7 @@ const styles = (theme: Theme) =>
   });
 
 const SaveFilePaths: Record<OSType, string | null> = {
-  windows: "Documents/Klei/OxygenNotIncluded/save_files",
+  windows: "%USERPROFILE%\\Documents\\Klei\\OxygenNotIncluded\\save_files",
   mac: null,
   linux: "~/.config/unity3d/Klei/Oxygen Not Included/save_files",
   unknown: null,
@@ -49,20 +43,19 @@ const NoSave: React.FC<Props> = ({ classes, t }) => (
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <Typography variant="h5" color="error">
-          WARNING: This project is no longer supported. While it may load saves,
-          it has not been updated since before Spaced Out, and might corrupt or
-          otherwise mangle saves.
+          This fork supports latest base-game saves (no DLC). Loading
+          unsupported versions can still corrupt data, so keep backup saves.
         </Typography>
         <Typography variant="h5">
-          If you are familiar with React, and want to take over mantainership or
-          fork this project, the source code is at:{" "}
-          <a href="https://github.com/RoboPhred/oni-duplicity">
-            github:RoboPhred/oni-duplicity
+          If you are familiar with React and want to maintain or fork this
+          project, the source code is at:{" "}
+          <a href="https://github.com/Banon-Labs/oni-duplicity">
+            github:Banon-Labs/oni-duplicity
           </a>
         </Typography>
         <Typography variant="h5">
-          If you want to create your own editor and can work in javascript, the
-          save parser is still fully operational and is located at{" "}
+          If you want to create your own editor and can work in JavaScript, the
+          save parser project is located at{" "}
           <a href="https://github.com/RoboPhred/oni-save-parser">
             github:RoboPhred/oni-save-parser
           </a>

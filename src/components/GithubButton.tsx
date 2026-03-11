@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { WithTranslation, withTranslation } from "react-i18next";
 
-import IconButton from "@material-ui/core/IconButton";
+import IconButton from "@mui/material/IconButton";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -15,7 +15,7 @@ const GithubButton: React.FC<Props> = ({ className, t }) => (
   <IconButton
     className={className}
     component="a"
-    href="https://github.com/RoboPhred/oni-duplicity"
+    href="https://github.com/Banon-Labs/oni-duplicity"
     target="_blank"
     title={t("view-github")}
   >
