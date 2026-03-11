@@ -2,21 +2,30 @@
 
 A web-based Oxygen Not Included save editor.
 
-You can find the editor at [https://robophred.github.io/oni-duplicity](https://robophred.github.io/oni-duplicity).
+Source repository: [this repository](.).
+
+If this fork is deployed with GitHub Pages, the editor URL is usually:
+`https://<owner>.github.io/<repo>/`
 
 The saved files are located in:
 
-MAC: `~/Library/Application Support/unity.Klei.Oxygen Not Included/save_files/`
+macOS: `~/Library/Application Support/unity.Klei.Oxygen Not Included/save_files/`
 
-Windows: `C:\Users\Your users name\Documents\Klei\OxygenNotIncluded\save_files\`
+Windows: `%USERPROFILE%\Documents\Klei\OxygenNotIncluded\save_files\`
 
 # Compatibility
 
-Supports save file version 7.15 (Recreation Pack). Future versions may not be compatible until the editor is updated. Previous versions may need to be updated by re-saving them in the newest version of the game.
+Supports base-game save versions up to 7.37. DLC saves are not supported in this release.
 
 # V3
 
 This branch is a rewrite of the UI focusing on ease of use and community requested features.
+
+# Development Install
+
+Use `npm ci --legacy-peer-deps` for reproducible installs in this fork.
+
+`npm ci` currently fails due to a React 18 peer-dependency conflict through `connected-react-router`, so CI and local setup intentionally use the legacy peer resolution path until dependency graph remediation lands.
 
 # Translations
 
@@ -27,3 +36,12 @@ To contribute a translation, translate [/src/translations/en/common.json](src/tr
 # Implementation
 
 The actual save serialization is done by the [oni-save-parser](https://github.com/RoboPhred/oni-save-parser) library. Feel free to use this library in your own projects.
+
+# Release Readiness
+
+Before cutting a release, run:
+
+- `npm test`
+- `npm run build`
+- `node scripts/harness/parse-write-idempotent.mjs src/__mocks__/save-game.json`
+- `node scripts/harness/derive-stats.mjs src/__mocks__/save-game.json`
