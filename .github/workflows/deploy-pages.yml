@@ -35,7 +35,7 @@ jobs:
         run: npm test
 
       - name: Build
-        run: npm run build
+        run: NODE_OPTIONS=--openssl-legacy-provider npm run build
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
